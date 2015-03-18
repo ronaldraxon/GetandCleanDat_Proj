@@ -9,8 +9,8 @@
 ## UCI HAR Dataset directory is located.
 ## This function has a couple lines commented in order to guide anyone who
 ## wants to use it, but if you need further information about how to run this code, 
-## please check the Readme.md entry at https://github.com/ronaldraxon/GetandCleanDat_Proj
-## Also you can find info about how this program works and meta data in the codebook.txt located
+## please check the Readme.md entry at https://github.com/ronaldraxon/GetandCleanDat_Proj.
+## Also you can find info about how this program works and meta data in the code book located
 ## in the same repo.
 #############################################################################################
 run_analysis <- function(rds_path = getwd()) {
