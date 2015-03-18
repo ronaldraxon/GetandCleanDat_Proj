@@ -102,7 +102,12 @@ It uses the...
 It uses the...
 
   gr_subacmen <- df_data %>%
-                 group_by(Activity_desc,Subject_num) %>%
-                 
+  group_by(Activity_desc,Subject_num) %>%
+  summarise_each(funs(mean))
+  message(paste(c("Creating secondary tidy data set in ",rds_path,"/tidymeanset.txt"),collapse=''))
+  write.table(gr_subacmen, file = paste(c(rds_path,"/tidymeanset.txt"),collapse=''),row.names = FALSE)
+  message("Process succesfully finished!")
+  return(df_data)
+  
 == Authors
 Created by Ronald Rodríguez (ronaldraxon)
