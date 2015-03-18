@@ -82,13 +82,13 @@ It uses the...
 
   df_data <- cbind(select(df_acticom,Activity_desc),df_data)
   
-* Step 9. Extract the subjects and merge them with the data set
+* Step 9. Extract the subjects and sets the Variable (column) names
 It uses the...
 
   df_josucom <- rbind(df_subdstr,df_subdste)
   colnames(df_josucom) <- c("Subject_num")
 
-* Step 10. Set the Variable (column) names
+* Step 10. merge the subjectos with the data set
 It uses the...
 
   df_data <- cbind(select(df_josucom,Subject_num),df_data
