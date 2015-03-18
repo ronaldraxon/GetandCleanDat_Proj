@@ -115,15 +115,15 @@ run_analysis <- function(rds_path = getwd()) {
   ###########################################
   df_data <- cbind(select(df_acticom,Activity_desc),df_data)
   
-  #########################################################
-  ##9.Extract the subjects and merge them with the data set.
-  #########################################################
+  ##############################################################
+  ##9.Extract the subjects and sets the Variable (column) names.
+  ##############################################################
   df_josucom <- rbind(df_subdstr,df_subdste)
   colnames(df_josucom) <- c("Subject_num")
   
-  ####################################
-  ##10.Set the Variable (column) names.
-  ####################################
+  ###########################################
+  ##10.Merge the subjectos with the data set.
+  ###########################################
   df_data <- cbind(select(df_josucom,Subject_num),df_data)
   
   #####################################################
