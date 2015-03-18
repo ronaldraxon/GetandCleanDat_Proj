@@ -62,6 +62,7 @@ It uses the...
   
 * Step 6. Extracts only the measurements on the mean and standard deviation for each measurement
  It uses the...
+ 
   df_data <- df_acticom[,-(461:502)]
   df_data <- df_data[,-(513:519)]
   df_data <- tbl_df(df_data)
@@ -69,11 +70,24 @@ It uses the...
 
 * Step 7. Changes de activities code number by their description
 It uses the...
-* Step 8. Verifies the files existence
+
+  df_actlb <- read.table(paste(c(rds_path,"/UCI HAR Dataset/activity_labels.txt"),collapse=''))
+  df_joacttr <- suppressMessages(join(df_actlb,df_actdstr))
+  df_joactte <- suppressMessages(join(df_actlb,df_actdste))
+  df_acticom <- rbind(df_joacttr,df_joactte)
+  colnames(df_acticom) <- c("Activity_code","Activity_desc")
+  
+* Step 8. Merges the activites with the data set
 It uses the...
-* Step 9. Verifies the files existence
+
+  df_data <- cbind(select(df_acticom,Activity_desc),df_data)
+  
+* Step 9. Extract the subjects and merge them with the data set
+
+  df_josucom <- rbind(df_subdstr,df_subdste)
+  colnames(df_josucom) <- c("Subject_num")
 It uses the...
-* Step 10. Verifies the files existence
+* Step 10. Set the Variable (column) names
 It uses the...
 * Step 11. Verifies the files existence
 It uses the...
