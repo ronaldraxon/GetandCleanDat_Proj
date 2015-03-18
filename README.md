@@ -6,7 +6,7 @@ from different files in the wearable computing project, collected
 from the accelerometers of the Samsung Galaxy S smartphone.
 this function has only one parameter an it is the path where the
 UCI HAR Dataset directory is located.
-For further about how this program works and meta data, please 
+For further information about how this program works and meta data, please 
 check the codebook.txt entry located 
 at https://github.com/ronaldraxon/GetandCleanDat_Proj.
 
@@ -18,7 +18,7 @@ Please follow the instructions below to run the program:
 2) In order to execute the program, you have to load it 
    with the "source" function in a r console.
 
-	source("/yourfilelocationhere.../run_analysis.R")
+	source("yourfilelocationhere.../run_analysis.R")
 
 3) And then just run it!
 
@@ -37,10 +37,10 @@ Example:
 	5           1       WALKING     0.2766288   -0.01656965    -0.1153619        0.9682244
 	6           1       WALKING     0.2771988   -0.01009785    -0.1051373        0.9679482
 
-This function returns the whole tidy data set, but according the project's conditions I've added 
+This script returns the whole tidy data set, but according the project's conditions, I've added 
 a couple lines that creates a second independent tidy data set with the average of each variable 
 for each activity and each subject with write.table() function. The file will be written on the 
-specified directory as parameter or by default in the working directory.
+specified directory as parameter or in the working directory by default.
 
 Notes:
 
