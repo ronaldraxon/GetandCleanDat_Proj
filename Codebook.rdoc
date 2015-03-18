@@ -88,7 +88,7 @@ It uses the...
   df_josucom <- rbind(df_subdstr,df_subdste)
   colnames(df_josucom) <- c("Subject_num")
 
-* Step 10. merge the subjectos with the data set
+* Step 10. Merge the subjects with the data set
 It uses the...
 
   df_data <- cbind(select(df_josucom,Subject_num),df_data
