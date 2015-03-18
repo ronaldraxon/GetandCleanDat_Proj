@@ -1,4 +1,4 @@
-== Code Book for Wearable computing project(run_analysis.R)
+== Code Book for the wearable computing project(run_analysis.R)
 This is the code book for the raw to tidy data transformation. This process is carried out by the run_analysis.R script 
 that extracts raw data from different files in UCI HAR Dataset directory were the wearable computing project data is located
 
@@ -60,17 +60,22 @@ It uses the...
   df_varname <- gsub("[[:punct:]]", "", df_varname)
   colnames(df_acticom) <- df_varname
   
-* Step 6. Verifies the files existence
+* Step 6. Extracts only the measurements on the mean and standard deviation for each measurement
+ It uses the...
+  df_data <- df_acticom[,-(461:502)]
+  df_data <- df_data[,-(513:519)]
+  df_data <- tbl_df(df_data)
+  df_data <- cbind(select(df_data,contains("mean",ignore.case = TRUE)),select(df_data,contains("std",ignore.case = TRUE)))
+
+* Step 7. Changes de activities code number by their description
 It uses the...
-* Step 7. Verifies the files existence
+* Step 8. Verifies the files existence
 It uses the...
-* Step 7. Verifies the files existence
+* Step 9. Verifies the files existence
 It uses the...
-* Step 7. Verifies the files existence
+* Step 10. Verifies the files existence
 It uses the...
-* Step 7. Verifies the files existence
-It uses the...
-* Step 7. Verifies the files existence
+* Step 11. Verifies the files existence
 It uses the...
 == Authors
 Created by Ronald Rodríguez (ronaldraxon)
