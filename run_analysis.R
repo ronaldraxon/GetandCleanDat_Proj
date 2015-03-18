@@ -21,7 +21,7 @@ run_analysis <- function(rds_path = getwd()) {
   suppressMessages(library(base))
   
   ################################
-  ##1.Verifies the files existence
+  ##1.Verifies the files existence.
   ################################
   if(!file.exists(paste(c(rds_path,"/UCI HAR Dataset/test/subject_test.txt"),collapse=''))){
     message("subject_test.txt is not available! Please check the directory path.")
@@ -80,12 +80,12 @@ run_analysis <- function(rds_path = getwd()) {
   }
   
   ########################################################################
-  ##4.Binds (Merges) the training and the test sets to create one data set
+  ##4.Binds (Merges) the training and the test sets to create one data set.
   ########################################################################
   df_acticom <-rbind(df_valdstr,df_valdste)
   
   ###################################
-  ##5.Set the Variable (column) names
+  ##5.Set the Variable (column) names.
   ###################################
   df_varname <- read.table(paste(c(rds_path,"/UCI HAR Dataset/features.txt"),collapse=''))
   df_varname <- df_varname$V2
@@ -102,7 +102,7 @@ run_analysis <- function(rds_path = getwd()) {
   df_data <- cbind(select(df_data,contains("mean",ignore.case = TRUE)),select(df_data,contains("std",ignore.case = TRUE)))
   
   ##########################################################
-  ##6.Changes de activities code number by their description
+  ##7.Changes de activities code number by their description.
   ##########################################################
   df_actlb <- read.table(paste(c(rds_path,"/UCI HAR Dataset/activity_labels.txt"),collapse=''))
   df_joacttr <- suppressMessages(join(df_actlb,df_actdstr))
@@ -111,30 +111,30 @@ run_analysis <- function(rds_path = getwd()) {
   colnames(df_acticom) <- c("Activity_code","Activity_desc")
   
   ###########################################
-  ##7.Merges the activites with the data set
+  ##8.Merges the activites with the data set.
   ###########################################
   df_data <- cbind(select(df_acticom,Activity_desc),df_data)
   
   #########################################################
-  ##8.Extract the subjects and merge them with the data set
+  ##9.Extract the subjects and merge them with the data set.
   #########################################################
   df_josucom <- rbind(df_subdstr,df_subdste)
   colnames(df_josucom) <- c("Subject_num")
   
-  ###################################
-  ##9.Set the Variable (column) names
-  ##################################
+  ####################################
+  ##10.Set the Variable (column) names.
+  ####################################
   df_data <- cbind(select(df_josucom,Subject_num),df_data)
   
   #####################################################
-  ###9.1 Detach package plyr to use summarize properly
+  ###11. Detach package plyr to use summarize properly.
   #####################################################
   detach("package:plyr", unload=TRUE)
   suppressMessages(library(dplyr))
   
   ############################################################
-  ##10.Create the files with the tidy data with the average of 
-  ##each variable for each activity and each subject
+  ##12.Create the file with the tidy data with the average of 
+  ##each variable for each activity and each subject.
   ############################################################
   gr_subacmen <- df_data %>%
                  group_by(Activity_desc,Subject_num) %>%
