@@ -61,7 +61,7 @@ It uses the...
   colnames(df_acticom) <- df_varname
   
 * Step 6. Extracts only the measurements on the mean and standard deviation for each measurement
- It uses the...
+It uses the...
  
   df_data <- df_acticom[,-(461:502)]
   df_data <- df_data[,-(513:519)]
@@ -83,13 +83,26 @@ It uses the...
   df_data <- cbind(select(df_acticom,Activity_desc),df_data)
   
 * Step 9. Extract the subjects and merge them with the data set
+It uses the...
 
   df_josucom <- rbind(df_subdstr,df_subdste)
   colnames(df_josucom) <- c("Subject_num")
-It uses the...
+
 * Step 10. Set the Variable (column) names
 It uses the...
-* Step 11. Verifies the files existence
+
+  df_data <- cbind(select(df_josucom,Subject_num),df_data
+  
+* Step 11. Detach package plyr to use summarize properly
 It uses the...
+  detach("package:plyr", unload=TRUE)
+  suppressMessages(library(dplyr))
+
+* Step 12. Create the file with the tidy data
+It uses the...
+
+  gr_subacmen <- df_data %>%
+                 group_by(Activity_desc,Subject_num) %>%
+                 
 == Authors
 Created by Ronald Rodríguez (ronaldraxon)
