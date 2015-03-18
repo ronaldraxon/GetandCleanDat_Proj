@@ -1,10 +1,76 @@
-== Code Book for run_analysis.R (Wearable computing project - Samsung Galaxy S smartphone)
+== Code Book for Wearable computing project(run_analysis.R)
+This is the code book for the raw to tidy data transformation. This process is carried out by the run_analysis.R script 
+that extracts raw data from different files in UCI HAR Dataset directory were the wearable computing project data is located
 
 == Meta-data (Raw data)
 * Everthing about the inputs and raw data
 == Meta-data (Tidy data)
 * Everthing about the output 
-== How it works?
-* Everthing about the output 
+== How the run_analisys script works?
+=== Parameters
+This function has only one parameter and it's the path where the UCI HAR Dataset directory is located. If the parameter is ommited
+the "getwd" function is used to get the default working directory configured in R.
+=== Process
+* Invoking Libraries
+  The code starts with a notification, then it loads the libraries
+    message("Executing! please wait...")
+    suppressMessages(library(dplyr))
+    suppressMessages(library(plyr))
+    suppressMessages(library(base))
+    
+* Step 1. Verifies the files existence
+It uses the...
+  if(!file.exists(paste(c(rds_path,"/UCI HAR Dataset/test/subject_test.txt"),collapse=''))){
+    message("subject_test.txt is not available! Please check the directory path.")
+    return(FALSE)
+  }
+  
+* Step 2. Check the number of rows for y_train(Activites), subject_train and x_train)
+It uses the...
+  df_actdstr <- read.table(paste(c(rds_path,"/UCI HAR Dataset/train/y_train.txt"),collapse=''))
+  df_subdstr <- read.table(paste(c(rds_path,"/UCI HAR Dataset/train/subject_train.txt"),collapse=''))  
+  df_valdstr <- read.table(paste(c(rds_path,"/UCI HAR Dataset/train/x_train.txt"),collapse=''))
+  
+Then it...
+  if(nrow(df_actdstr) != nrow(df_subdstr) | nrow(df_valdstr) != nrow(df_subdstr)){
+    message("The files in train directory don't have the same number of observations!")
+    return(FALSE)
+  }
+  
+* Step 3. Check the number of rows for y_test(Activites), subject_test and x_test)
+It uses the...
+  df_actdste <- read.table(paste(c(rds_path,"/UCI HAR Dataset/test/y_test.txt"),collapse=''))
+  df_subdste <- read.table(paste(c(rds_path,"/UCI HAR Dataset/test/subject_test.txt"),collapse=''))
+  df_valdste <- read.table(paste(c(rds_path,"/UCI HAR Dataset/test/x_test.txt"),collapse=''))
+  
+Then it...
+  if(nrow(df_actdste) != nrow(df_subdste) | nrow(df_valdste) != nrow(df_subdste)){
+    message("The files in test directory don't have the same number of observations!")
+    return(FALSE)
+  }
+  
+* Step 4. Binds (Merges) the training and the test sets to create one data set
+It uses the...
+  df_acticom <-rbind(df_valdstr,df_valdste)
+  
+* Step 5. Set the Variable(column) names
+It uses the...
+  df_varname <- read.table(paste(c(rds_path,"/UCI HAR Dataset/features.txt"),collapse=''))
+  df_varname <- df_varname$V2
+  df_varname <- gsub("[[:punct:]]", "", df_varname)
+  colnames(df_acticom) <- df_varname
+  
+* Step 6. Verifies the files existence
+It uses the...
+* Step 7. Verifies the files existence
+It uses the...
+* Step 7. Verifies the files existence
+It uses the...
+* Step 7. Verifies the files existence
+It uses the...
+* Step 7. Verifies the files existence
+It uses the...
+* Step 7. Verifies the files existence
+It uses the...
 == Authors
 Created by Ronald Rodríguez (ronaldraxon)
