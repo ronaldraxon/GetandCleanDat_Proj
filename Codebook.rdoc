@@ -4,6 +4,14 @@ that extracts raw data from different files in UCI HAR Dataset directory were th
 
 == Meta-data (Raw data)
 * Everthing about the inputs and raw data
+
+== Observations (Raw data)
+-Even the subject number goes up yo 30 there's only 21 subjects
+-The quantity of observations per each activity is not the same for all subjects. In other words if there are four observations 
+for any subject in "WALKING" activity there are more o less than four observations in other activities.
+-The files with the name y_train and y_test suits the activities performed for each subject.
+-Even the angle variables were calculated with the mean of other variables (gravityMean, tBodyAccMean, tBodyAccJerkMean, tBodyAccJerkMean, tBodyGyroMean, tBodyGyroMean, tBodyGyroJerkMean) they're not used to concieve the tidy data set
+
 == Meta-data (Tidy data)
 * Everthing about the output 
 == How the run_analisys script works?
