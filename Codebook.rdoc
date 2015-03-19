@@ -107,7 +107,8 @@ Additional vectors obtained by averaging the signals in a signal window sample. 
 
 === License and acknowledgements
 
-Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012.
+
 This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
 Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
 
@@ -122,8 +123,25 @@ for any subject in "WALKING" activity there are more o less than four observatio
 * Everthing about the output 
 == How the run_analisys script works?
 === Parameters
+
 This function has only one parameter and it's the path where the UCI HAR Dataset directory is located. If the parameter is ommited
 the "getwd" function is used to get the default working directory configured in R.
+
+=== Local variables
+
+* df_actdstr 
+Data frame of activities dataset in the train directory (y_train.txt)
+* df_subdstr
+Data frame of subjects dataset in the train directory (subject_train.txt)
+* df_valdstr
+Data frame of values dataset in the train directory (x_train.txt)
+* df_actdste: 
+Data frame of activities dataset in the test directory (y_test.txt)
+* df_subdste
+Data frame of subjects dataset in the test directory (subject_test.txt)
+* df_valdste
+Data frame of values dataset in the test directory (x_test	.txt)
+
 === Process
 * Invoking Libraries
   The code starts with a notification, then it loads the libraries
