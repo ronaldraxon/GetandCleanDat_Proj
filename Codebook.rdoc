@@ -1,4 +1,4 @@
-== Code Book for the wearable computing project(run_analysis.R)
+= Code Book for the wearable computing project(run_analysis.R)
 This is the code book for the raw to tidy data transformation. This process is carried out by the run_analysis.R script 
 that extracts raw data from different files in UCI HAR Dataset directory were the wearable computing project data is located
 
@@ -51,7 +51,7 @@ The body acceleration signal obtained by subtracting the gravity from the total 
 * train/Inertial Signals/body_gyro_x_train.txt 
 The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
 
-== Observations (Raw data)
+=== Observations (Raw data)
 * Even the subject number goes up to 30 there's only 21 subjects.
 * The quantity of observations per each activity is not the same for all subjects. In other words if there are four observations 
 for any subject in "WALKING" activity there are more o less than four observations in other activities.
