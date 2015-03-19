@@ -26,16 +26,16 @@ Example:
 
 	> tdata <- run_analysis()
 	Executing! please wait...
-	Creating secondary tidy data set on C:/.../Documents/tidymeanset.txt
+	Creating secondary tidy data set in C:/Users/RRODRIGUEZ.PROYCOMP/Documents/tidymeanset.txt
 	Process succesfully finished!
-	>head(tdata)
-  	Subject_num Activity_desc tBodyAccmeanX tBodyAccmeanY tBodyAccmeanZ tGravityAccmeanX
-	1           1       WALKING     0.2885845   -0.02029417    -0.1329051        0.9633961
-	2           1       WALKING     0.2784188   -0.01641057    -0.1235202        0.9665611
-	3           1       WALKING     0.2796531   -0.01946716    -0.1134617        0.9668781
-	4           1       WALKING     0.2791739   -0.02620065    -0.1232826        0.9676152
-	5           1       WALKING     0.2766288   -0.01656965    -0.1153619        0.9682244
-	6           1       WALKING     0.2771988   -0.01009785    -0.1051373        0.9679482
+	> head(tdata)
+  	Subject_num Activity_desc tBodyAccmeanX tBodyAccmeanY tBodyAccmeanZ tGravityAccmeanX tGravityAccmeanY
+	1           1       WALKING     0.2885845   -0.02029417    -0.1329051        0.9633961       -0.1408397
+	2           1       WALKING     0.2784188   -0.01641057    -0.1235202        0.9665611       -0.1415513
+	3           1       WALKING     0.2796531   -0.01946716    -0.1134617        0.9668781       -0.1420098
+	4           1       WALKING     0.2791739   -0.02620065    -0.1232826        0.9676152       -0.1439765
+	5           1       WALKING     0.2766288   -0.01656965    -0.1153619        0.9682244       -0.1487502
+	6           1       WALKING     0.2771988   -0.01009785    -0.1051373        0.9679482       -0.1482100
 
 This script returns the whole tidy data set, but according the project's conditions, I've added 
 a couple lines that creates a second independent tidy data set with the average of each variable 
@@ -59,6 +59,3 @@ can  get this message:
 
 For that reason, I´ve included the respective lines to call (and discard plyr as necessary) these libraries, 
 but you have to make sure these packages are available in your machine.
-
-
-
