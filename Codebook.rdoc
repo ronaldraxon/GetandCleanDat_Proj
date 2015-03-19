@@ -114,8 +114,7 @@ Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012
 
 === Observations (Raw data)
 * Even the subject number goes up to 30 there's only 21 subjects.
-* The quantity of observations per each activity is not the same for all subjects. In other words if there are four observations 
-for any subject in "WALKING" activity there are more o less than four observations in other activities.
+* The quantity of observations per each activity is not the same for all subjects. In other words if there are four observations for any subject in "WALKING" activity there are more o less than four observations in other activities.
 * The files with the name y_train and y_test suits the activities performed for each subject.
 * Even the angle variables were calculated with the mean of other variables (gravityMean, tBodyAccMean, tBodyAccJerkMean, tBodyAccJerkMean, tBodyGyroMean, tBodyGyroMean, tBodyGyroJerkMean) they're not used to concieve the tidy data set
 
