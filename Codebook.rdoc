@@ -119,7 +119,35 @@ Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012
 * Even the angle variables were calculated with the mean of other variables (gravityMean, tBodyAccMean, tBodyAccJerkMean, tBodyAccJerkMean, tBodyGyroMean, tBodyGyroMean, tBodyGyroJerkMean) they're not used to concieve the tidy data set
 
 == Meta-data (Tidy data)
-* Everthing about the output 
+
+
+* Activity_desc
+* Subject_num
+* tBodAcc
+* tGravityAcc
+* tBodAccJerk
+* tBodGyro
+* tBodGyroJerk
+* tBodAccMag
+* tGravityAccMag
+* tBodAccJerkMag
+* tBodGyroMag
+* tBodGyroJerkMag
+* fBodAcc
+* fBodAccFreq
+* fBodAccJerk
+* fBodAccJerkFreq
+* fBodGyro
+* fBodGyroFreq
+* fBodAccMag
+* fBodAccMagFreq
+* fBodBodAccJerkMag
+* fBodBodAccJerkMagFreq
+* fBodBodGyroMag
+* fBodBodGyroMagFreq
+* fBodBodGyroJerkMag
+* fBodBodGyroJerkMagFreq
+
 == How the run_analisys script works?
 === Parameters
 
@@ -139,7 +167,23 @@ Data frame of activities dataset in the test directory (y_test.txt)
 * df_subdste
 Data frame of subjects dataset in the test directory (subject_test.txt)
 * df_valdste
-Data frame of values dataset in the test directory (x_test	.txt)
+Data frame of values dataset in the test directory (x_test.txt)
+* df_acticom
+Data frame of values dataset in the test directory (x_test.txt)
+* df_varname
+Data frame for variable label
+* df_data
+Data frame for the complete data set (test and train)
+* df_actlb
+Data frame for activities labeles
+* df_joacttr
+Data frame for activities matched with the training observations
+* df_joactte
+Data frame for activities matched with the test observations
+* df_josucom
+Data frame for subject list
+* gr_subacmen
+Data frame used to store grouped and summarized tidy data by activities and subjects
 
 === Process
 * Invoking Libraries
