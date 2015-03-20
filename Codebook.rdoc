@@ -129,9 +129,9 @@ Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012
 * Even the angle variables were calculated with the mean of other variables (gravityMean, tBodyAccMean, tBodyAccJerkMean, tBodyAccJerkMean, tBodyGyroMean, tBodyGyroMean, tBodyGyroJerkMean) they're not used to concieve the tidy data set
 
 == Meta-data (Tidy data)
-
-* mean(): Mean value
-* std(): Standard deviation
+ The tidy data set will be created from the raw data mentioned above. The tidy data set will include the mean value and the standard
+ deviation for the following features (There are only two new columns that differ from the inital raw data set: the activity descrption "Activity_desc"
+ and the subject number or code "Subject_num" that are located in different files)
 
 * Activity_desc (String)
 * Subject_num (Numeric/Integer)
@@ -292,15 +292,9 @@ df_josucom.
 * Step 10. Merge the subjects with the data set
   df_data <- cbind(select(df_josucom,Subject_num),df_data
   
-* Step 11. Detach package plyr to use summarize properly
-It uses the detach() function to discard the called library plyr. It has to be done in order to use summarise_each() function
-(if not the result will be a sigle row)
-  detach("package:plyr", unload=TRUE)
-  suppressMessages(library(dplyr))
-
-* Step 12. Create the file with the tidy data
-It uses the...
-
+* Step 11. Create the file with the tidy data
+It uses the chaining operator "%>%" in order to gather a couple sentences that will group and sumarize the data
+for the output file. Finally the write.table() function creates a file with the second tidy data set.
   gr_subacmen <- df_data %>%
   group_by(Activity_desc,Subject_num) %>%
   summarise_each(funs(mean))
