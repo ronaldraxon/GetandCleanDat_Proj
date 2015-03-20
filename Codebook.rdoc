@@ -188,11 +188,11 @@ Data frame for variable label
 Data frame for the complete data set (test and train)
 * df_actlb
 Data frame for activities labeles
-* df_joacttr
+* df_joacttr (joacttr - joined activities train)    
 Data frame for activities matched with the training observations
-* df_joactte
+* df_joactte (joactte - joined activities test)
 Data frame for activities matched with the test observations
-* df_josucom
+* df_josucom (josucom - joined subjects complete)
 Data frame for subject list
 * gr_subacmen
 Data frame used to store grouped and summarized tidy data by activities and subjects
@@ -222,7 +222,7 @@ it will be used as parameter for the read.table function to extract the data fro
   df_subdstr <- read.table(paste(c(rds_path,"/UCI HAR Dataset/train/subject_train.txt"),collapse=''))  
   df_valdstr <- read.table(paste(c(rds_path,"/UCI HAR Dataset/train/x_train.txt"),collapse=''))
   
-After extracting data the program verifies the number of the observations is the same in all the files using the nrow() function (If not the program
+After extracting data, the program verifies the number of the observations is the same in all the files using the nrow() function (If not the program
 returns false and stops the execution)
   if(nrow(df_actdstr) != nrow(df_subdstr) | nrow(df_valdstr) != nrow(df_subdstr)){
     message("The files in train directory don't have the same number of observations!")
@@ -247,26 +247,31 @@ returns false and stops the execution)
   
 * Step 4. Binds (Merges) the training and the test sets to create one data set
 It uses the rbind() function to combine the rows (observatios) from the test and train files, then it assigns this combination
-to a new variable called df_acticom
+to a new variable called df_acticom.
   df_acticom <-rbind(df_valdstr,df_valdste)
   
 * Step 5. Set the Variable(column) names
-It uses the...
+It opens the features files, extracts the data and creates a data frame called df_varname, then it will extract the second column
+with the feature names. With the sententece gsub("[[:punct:]]", "", df_varname) using the string "[[:punct:]]" as a parameter it wil
+remove all the punctuation characters (such as "()" and " ") in order to use legible names (no errors by using the select function or else giving a column name with pharentesis) when a query is required.
+Finally the column names or features are assigned to the complete dataset with the colnames() function.
   df_varname <- read.table(paste(c(rds_path,"/UCI HAR Dataset/features.txt"),collapse=''))
   df_varname <- df_varname$V2
   df_varname <- gsub("[[:punct:]]", "", df_varname)
   colnames(df_acticom) <- df_varname
   
 * Step 6. Extracts only the measurements on the mean and standard deviation for each measurement
-It uses the...
- 
+The program removes the columns that are not necessary and turns the data frame into a table data frame so the select() function can 
+be used to extract only the columns with a substring "mean" or "std" in their names using  the contains() function.
   df_data <- df_acticom[,-(461:502)]
   df_data <- df_data[,-(513:519)]
   df_data <- tbl_df(df_data)
   df_data <- cbind(select(df_data,contains("mean",ignore.case = TRUE)),select(df_data,contains("std",ignore.case = TRUE)))
 
 * Step 7. Changes de activities code number by their description
-It uses the...
+In order to change the activities codes by their respective description, the program uses the join() function. This function 
+will match the codes with the descriptions for each observation. After it creates the data frame the colnames() function
+is usted to set the column names.
 
   df_actlb <- read.table(paste(c(rds_path,"/UCI HAR Dataset/activity_labels.txt"),collapse=''))
   df_joacttr <- suppressMessages(join(df_actlb,df_actdstr))
@@ -275,23 +280,21 @@ It uses the...
   colnames(df_acticom) <- c("Activity_code","Activity_desc")
   
 * Step 8. Merges the activites with the data set
-It uses the...
-
+Once the data frame of activites is ready it combines the activities description with the complete data set.
   df_data <- cbind(select(df_acticom,Activity_desc),df_data)
   
 * Step 9. Extract the subjects and sets the Variable (column) names
-It uses the...
-
+Combines the subject codes of the train and test files and sets a column name for the data set called
+df_josucom.
   df_josucom <- rbind(df_subdstr,df_subdste)
   colnames(df_josucom) <- c("Subject_num")
 
 * Step 10. Merge the subjects with the data set
-It uses the...
-
   df_data <- cbind(select(df_josucom,Subject_num),df_data
   
 * Step 11. Detach package plyr to use summarize properly
-It uses the...
+It uses the detach() function to discard the called library plyr. It has to be done in order to use summarise_each() function
+(if not the result will be a sigle row)
   detach("package:plyr", unload=TRUE)
   suppressMessages(library(dplyr))
 
