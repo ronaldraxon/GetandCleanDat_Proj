@@ -199,45 +199,55 @@ Data frame used to store grouped and summarized tidy data by activities and subj
 
 === Process
 * Invoking Libraries
-  The code starts with a notification, then it loads the libraries
+The code starts with a notification, then it loads the libraries. After that it uses the suppressMessages() function
+in order to avoid messeges displaying when calling libraries. 
     message("Executing! please wait...")
     suppressMessages(library(dplyr))
     suppressMessages(library(plyr))
     suppressMessages(library(base))
     
 * Step 1. Verifies the files existence
-It uses the...
+It uses the paste() function to concatenate the extracted working directory with the specific path of the file. Also
+it uses file.exists from the base package to verify the existence of the files. as it returns a boolean value the if sentence
+will validate the result and depending on it (if the file is not in the specified path), the program will display a message and finish the execution.
   if(!file.exists(paste(c(rds_path,"/UCI HAR Dataset/test/subject_test.txt"),collapse=''))){
     message("subject_test.txt is not available! Please check the directory path.")
     return(FALSE)
   }
   
 * Step 2. Check the number of rows for y_train(Activites), subject_train and x_train)
-It uses the...
+It uses the paste() function to concatenate the extracted working directory with the specific path of the file. Once the path is complete
+it will be used as parameter for the read.table function to extract the data from the files.
   df_actdstr <- read.table(paste(c(rds_path,"/UCI HAR Dataset/train/y_train.txt"),collapse=''))
   df_subdstr <- read.table(paste(c(rds_path,"/UCI HAR Dataset/train/subject_train.txt"),collapse=''))  
   df_valdstr <- read.table(paste(c(rds_path,"/UCI HAR Dataset/train/x_train.txt"),collapse=''))
   
-Then it...
+After extracting data the program verifies the number of the observations is the same in all the files using the nrow() function (If not the program
+returns false and stops the execution)
   if(nrow(df_actdstr) != nrow(df_subdstr) | nrow(df_valdstr) != nrow(df_subdstr)){
     message("The files in train directory don't have the same number of observations!")
     return(FALSE)
   }
   
 * Step 3. Check the number of rows for y_test(Activites), subject_test and x_test)
-It uses the...
+As explained in step 2 it uses the paste() function to concatenate the extracted working directory with the specific path of the file. Once the path is complete
+it will be used as parameter for the read.table function to extract the data from the files. The difference in this case is that it will extract
+the data from the test files.
+
   df_actdste <- read.table(paste(c(rds_path,"/UCI HAR Dataset/test/y_test.txt"),collapse=''))
   df_subdste <- read.table(paste(c(rds_path,"/UCI HAR Dataset/test/subject_test.txt"),collapse=''))
   df_valdste <- read.table(paste(c(rds_path,"/UCI HAR Dataset/test/x_test.txt"),collapse=''))
   
-Then it...
+fter extracting data the program verifies the number of the observations is the same in all the files using the nrow() function (If not the program
+returns false and stops the execution)
   if(nrow(df_actdste) != nrow(df_subdste) | nrow(df_valdste) != nrow(df_subdste)){
     message("The files in test directory don't have the same number of observations!")
     return(FALSE)
   }
   
 * Step 4. Binds (Merges) the training and the test sets to create one data set
-It uses the...
+It uses the rbind() function to combine the rows (observatios) from the test and train files, then it assigns this combination
+to a new variable called df_acticom
   df_acticom <-rbind(df_valdstr,df_valdste)
   
 * Step 5. Set the Variable(column) names
