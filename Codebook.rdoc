@@ -4,8 +4,8 @@ that extracts raw data from different files in UCI HAR Dataset directory were th
 In the following sections, you'll find information about de raw data such as: general description of the scenario where the data
 was taken; description of the files included in the project as the description of the features or variables, data types and aknowledgements. 
 It's very important to keep in mind that the information about the raw data is same as the records and files you can get from
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip and http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
-it was modified just for presentation affairs but the rights are described in the Licence and acknowledgement section.
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip and http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones.
+It was modified just for presentation affairs but the rights are described in the Licence and acknowledgement section.
 
 For the tidy data, you can find information about output variables and its data types. A full description of the code 
 for the run_analysis.R script and what it does, will be included in the "How the run_analisys script works?" section. 
