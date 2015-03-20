@@ -126,14 +126,8 @@ run_analysis <- function(rds_path = getwd()) {
   ###########################################
   df_data <- cbind(select(df_josucom,Subject_num),df_data)
   
-  #####################################################
-  ###11. Detach package plyr to use summarize properly.
-  #####################################################
-  detach("package:plyr", unload=TRUE)
-  suppressMessages(library(dplyr))
-  
   ############################################################
-  ##12.Create the file with the tidy data with the average of 
+  ##11.Create the file with the tidy data with the average of 
   ##each variable for each activity and each subject.
   ############################################################
   gr_subacmen <- df_data %>%
