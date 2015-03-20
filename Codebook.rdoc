@@ -30,7 +30,7 @@ If you look inside the UCI HAR Dataset directory, you can find the following fil
 Shows information about the variables used on the feature vector such as tBodyAcc-XYZ, tGravityAcc-XYZ, tBodyAccJerk-XYZ, among others.
 
 * features.txt 
-It contains a full list of features (561 features).
+It contains a full list of features (561 features)
 
 * activity_labels.txt 
 It cointains a list of the activities with its corresponding codes, it allowa to link the class labels with their activity name.
@@ -39,7 +39,7 @@ It cointains a list of the activities with its corresponding codes, it allowa to
 Training set with values for the 561 features (7352 observations)
 
 * train/y_train.txt
-It contains the respecive subject code for each observation (same 7352 observations as in X_train.txt).
+It contains the respecive subject code for each observation (same 7352 observations as in X_train.txt)
 
 * test/X_test.txt 
 Test set with values for the 561 features (2947 observations)
@@ -69,23 +69,23 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-* tBodyAcc-XYZ
-* tGravityAcc-XYZ
-* tBodyAccJerk-XYZ
-* tBodyGyro-XYZ
-* tBodyGyroJerk-XYZ
-* tBodyAccMag
-* tGravityAccMag
-* tBodyAccJerkMag
-* tBodyGyroMag
-* tBodyGyroJerkMag
-* fBodyAcc-XYZ
-* fBodyAccJerk-XYZ
-* fBodyGyro-XYZ
-* fBodyAccMag
-* fBodyAccJerkMag
-* fBodyGyroMag
-* fBodyGyroJerkMag
+* tBodyAcc-XYZ  (Numeric/Double)
+* tGravityAcc-XYZ (Numeric/Double)
+* tBodyAccJerk-XYZ  (Numeric/Double)
+* tBodyGyro-XYZ (Numeric/Double)
+* tBodyGyroJerk-XYZ (Numeric/Double)
+* tBodyAccMag (Numeric/Double)
+* tGravityAccMag  (Numeric/Double)
+* tBodyAccJerkMag (Numeric/Double)
+* tBodyGyroMag  (Numeric/Double)
+* tBodyGyroJerkMag  (Numeric/Double)
+* fBodyAcc-XYZ  (Numeric/Double)
+* fBodyAccJerk-XYZ  (Numeric/Double)
+* fBodyGyro-XYZ (Numeric/Double)
+* fBodyAccMag (Numeric/Double)
+* fBodyAccJerkMag (Numeric/Double)
+* fBodyGyroMag  (Numeric/Double)
+* fBodyGyroJerkMag  (Numeric/Double)
 
 The set of variables that were estimated from these signals are: 
 
@@ -109,11 +109,11 @@ The set of variables that were estimated from these signals are:
 
 Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
 
-* gravityMean
-* tBodyAccMean
-* tBodyAccJerkMean
-* tBodyGyroMean
-* tBodyGyroJerkMean
+* gravityMean (Numeric/Integer)
+* tBodyAccMean  (Numeric/Integer)
+* tBodyAccJerkMean  (Numeric/Integer)
+* tBodyGyroMean (Numeric/Integer)
+* tBodyGyroJerkMean (Numeric/Integer)
 
 === License and acknowledgements
 
@@ -130,33 +130,35 @@ Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012
 
 == Meta-data (Tidy data)
 
+* mean(): Mean value
+* std(): Standard deviation
 
-* Activity_desc
-* Subject_num
-* tBodAcc
-* tGravityAcc
-* tBodAccJerk
-* tBodGyro
-* tBodGyroJerk
-* tBodAccMag
-* tGravityAccMag
-* tBodAccJerkMag
-* tBodGyroMag
-* tBodGyroJerkMag
-* fBodAcc
-* fBodAccFreq
-* fBodAccJerk
-* fBodAccJerkFreq
-* fBodGyro
-* fBodGyroFreq
-* fBodAccMag
-* fBodAccMagFreq
-* fBodBodAccJerkMag
-* fBodBodAccJerkMagFreq
-* fBodBodGyroMag
-* fBodBodGyroMagFreq
-* fBodBodGyroJerkMag
-* fBodBodGyroJerkMagFreq
+* Activity_desc (String)
+* Subject_num (Numeric/Integer)
+* tBodAcc (Numeric/Double)
+* tGravityAcc (Numeric/Double)
+* tBodAccJerk (Numeric/Double)
+* tBodGyro  (Numeric/Double)
+* tBodGyroJerk  (Numeric/Double)
+* tBodAccMag  (Numeric/Double)
+* tGravityAccMag  (Numeric/Double)
+* tBodAccJerkMag  (Numeric/Double)
+* tBodGyroMag (Numeric/Double)
+* tBodGyroJerkMag (Numeric/Double)
+* fBodAcc (Numeric/Double)
+* fBodAccFreq (Numeric/Double)
+* fBodAccJerk (Numeric/Double)
+* fBodAccJerkFreq (Numeric/Double)
+* fBodGyro  (Numeric/Double)
+* fBodGyroFreq  (Numeric/Double)
+* fBodAccMag  (Numeric/Double)
+* fBodAccMagFreq  (Numeric/Double)
+* fBodBodAccJerkMag (Numeric/Double)
+* fBodBodAccJerkMagFreq (Numeric/Double)
+* fBodBodGyroMag  (Numeric/Double)
+* fBodBodGyroMagFreq  (Numeric/Double)
+* fBodBodGyroJerkMag  (Numeric/Double)
+* fBodBodGyroJerkMagFreq  (Numeric/Double)
 
 == How the run_analisys script works?
 === Parameters
