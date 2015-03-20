@@ -8,10 +8,8 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 it was modified just for presentation affairs but the rights are described in the Licence and acknowledgement section.
 
 For the tidy data, you can find information about output variables and its data types. A full description of the code 
-for the run_analysis.R script and what it does, will be included en the "How the run_analisys script works?" section. 
+for the run_analysis.R script and what it does, will be included in the "How the run_analisys script works?" section. 
 Parameters and local variables will be included as well. 
-
-
 
 == Meta-data (Raw data)
 
@@ -26,27 +24,28 @@ and 3-axial angular velocity at a constant rate of 50Hz. The obtained dataset ha
 was selected for generating the training data and 30% the test data.
 
 === Data set files
+If you look inside the UCI HAR Dataset directory, you can find the following files:
 
 * features_info.txt 
-Shows information about the variables used on the feature vector.
+Shows information about the variables used on the feature vector such as tBodyAcc-XYZ, tGravityAcc-XYZ, tBodyAccJerk-XYZ, among others.
 
 * features.txt 
-List of all features.
+It contains a full list of features (561 features).
 
 * activity_labels.txt 
-Links the class labels with their activity name.
+It cointains a list of the activities with its corresponding codes, it allowa to link the class labels with their activity name.
 
 * train/X_train.txt
-Training set.
+Training set with values for the 561 features (7352 observations)
 
-* train/y_train.txt 
-Training labels.
+* train/y_train.txt
+It contains the respecive subject code for each observation (same 7352 observations as in X_train.txt).
 
 * test/X_test.txt 
-Test set.
+Test set with values for the 561 features (2947 observations)
 
 * test/y_test.txt
-Test labels.
+It contains the respecive subject code for each observation (same 2947 observations as in X_train.txt)
 
 The following files are available for the train and test data. Their descriptions are equivalent.
 
@@ -126,7 +125,7 @@ Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012
 === Observations (Raw data)
 * Even the subject number goes up to 30 there's only 21 subjects.
 * The quantity of observations per each activity is not the same for all subjects. In other words if there are four observations for any subject in "WALKING" activity there are more o less than four observations in other activities.
-* The files with the name y_train and y_test suits the activities performed for each subject.
+* The files with the name y_train and y_test suits the activities performed for each subject(It is assumed the number of observations in y_train and y_test is the same for x_train and x_test respectively).
 * Even the angle variables were calculated with the mean of other variables (gravityMean, tBodyAccMean, tBodyAccJerkMean, tBodyAccJerkMean, tBodyGyroMean, tBodyGyroMean, tBodyGyroJerkMean) they're not used to concieve the tidy data set
 
 == Meta-data (Tidy data)
