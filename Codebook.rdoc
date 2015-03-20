@@ -290,7 +290,7 @@ df_josucom.
   colnames(df_josucom) <- c("Subject_num")
 
 * Step 10. Merge the subjects with the data set
-  df_data <- cbind(select(df_josucom,Subject_num),df_data
+   df_data <- cbind(select(df_josucom,Subject_num),df_data
   
 * Step 11. Create the file with the tidy data
 It uses the chaining operator "%>%" in order to gather a couple sentences that will group and sumarize the data
