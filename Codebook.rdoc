@@ -129,9 +129,9 @@ Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012
 * Even the angle variables were calculated with the mean of other variables (gravityMean, tBodyAccMean, tBodyAccJerkMean, tBodyAccJerkMean, tBodyGyroMean, tBodyGyroMean, tBodyGyroJerkMean) they're not used to concieve the tidy data set
 
 == Meta-data (Tidy data)
- The tidy data set will be created from the raw data mentioned above. The tidy data set will include the mean value and the standard
- deviation for the following features (There are only two new columns that differ from the inital raw data set: the activity descrption "Activity_desc"
- and the subject number or code "Subject_num" that are located in different files)
+The tidy data set will be created from the raw data mentioned above. The tidy data set will include the mean value and the standard
+deviation for the following features (There are only two new columns that differ from the inital raw data set: the activity descrption "Activity_desc"
+and the subject number or code "Subject_num" that are located in different files)
 
 * Activity_desc (String)
 * Subject_num (Numeric/Integer)
