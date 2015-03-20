@@ -73,5 +73,5 @@ can  get this message:
 	If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
 	library(plyr); library(dplyr)
 
-For that reason, I´ve included the respective lines to call (and discard plyr as necessary) these libraries, 
+For that reason, I´ve included the respective lines to call those libraries, 
 but you have to make sure these packages are available in your machine.
